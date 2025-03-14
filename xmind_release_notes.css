@@ -6,19 +6,9 @@
 }
 
 body {
-    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 50%, #e2e8f0 100%);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
-    color: #333;
-    line-height: 1.6;
-    padding: 0;
-    margin: 0;
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50% }
-    50% { background-position: 100% 50% }
-    100% { background-position: 0% 50% }
+    background: #000000;
+    min-height: 100vh;
+    padding: 2rem;
 }
 
 .container {
@@ -28,176 +18,377 @@ body {
 }
 
 .header {
-    text-align: center;
-    padding: 3rem 0;
-    margin-bottom: 2rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 8rem 0;
+    border-radius: 24px;
+    margin-bottom: 4rem;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #1a1a1a 0%, #222222 100%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, 
+        rgba(79, 172, 254, 0.15) 0%,
+        rgba(0, 242, 254, 0.15) 25%,
+        rgba(102, 126, 234, 0.1) 50%,
+        transparent 75%);
+    z-index: 1;
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
 }
 
 .header-content h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1.5rem;
-    background: linear-gradient(90deg, #007CF0, #00DFD8);
+    font-size: 64px;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    margin: 0 auto;
+    padding: 0 2rem;
+    background: linear-gradient(
+        90deg,
+        #4facfe 0%,
+        #00f2fe 25%,
+        #667eea 50%,
+        #764ba2 75%,
+        #4facfe 100%
+    );
+    background-size: 200% auto;
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-weight: 700;
+    animation: shine 3s linear infinite;
 }
 
 .cta-button {
-    display: inline-block;
-    padding: 0.8rem 1.8rem;
-    background: linear-gradient(90deg, #007CF0, #00DFD8);
-    color: white;
-    text-decoration: none;
-    border-radius: 30px;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 124, 240, 0.2);
+    margin-top: 1rem;
+    padding: 16px 32px;
+    font-size: 21px;
+}
+
+.header::before {
+    background: radial-gradient(circle at 50% 50%, 
+        rgba(79, 172, 254, 0.1) 0%,
+        rgba(0, 242, 254, 0.1) 25%,
+        rgba(102, 126, 234, 0.1) 50%,
+        transparent 75%);
+}
+
+.header-content h1 {
+    background: linear-gradient(
+        90deg,
+        #4facfe 0%,
+        #00f2fe 25%,
+        #667eea 50%,
+        #764ba2 75%,
+        #4facfe 100%
+    );
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 3s linear infinite;
+}
+
+@keyframes shine {
+    to {
+        background-position: 200% center;
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px rgba(79, 172, 254, 0.5),
+                     0 0 20px rgba(0, 242, 254, 0.3),
+                     0 0 30px rgba(102, 126, 234, 0.2);
+    }
+    to {
+        text-shadow: 0 0 20px rgba(79, 172, 254, 0.6),
+                     0 0 30px rgba(0, 242, 254, 0.4),
+                     0 0 40px rgba(102, 126, 234, 0.3);
+    }
+}
+
+.cta-button {
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.3);
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px rgba(0, 124, 240, 0.3);
-}
-
-.section-title {
-    margin: 3rem 0 1.5rem 0;
+    background: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
+    box-shadow: 0 0 30px rgba(79, 172, 254, 0.4);
 }
 
 .section-title h2 {
-    font-size: 1.8rem;
+    font-size: 40px;
     font-weight: 600;
-    color: #333;
-    position: relative;
-    display: inline-block;
-    padding-bottom: 0.5rem;
+    letter-spacing: -0.003em;
+    background: #ffffff;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-.section-title h2::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background: linear-gradient(90deg, #007CF0, #00DFD8);
-    border-radius: 3px;
+.card-icon {
+    font-size: 64px; /* emoji 大小 */
+    margin-bottom: 24px;
+}
+
+.card-content h3 {
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -0.002em;
+    line-height: 1.3;
+}
+
+.card-content p {
+    font-size: 17px;
+    font-weight: 400;
+    letter-spacing: -0.001em;
+    line-height: 1.47059;
+    color: #6e6e73;
+}
+
+.cta-button {
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: -0.002em;
+}
+
+/* 添加全局字体平滑 */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.section-title {
+    text-align: center;
+    margin: 4rem 0 2rem;
+}
+
+.section-title h2 {
+    color: #1d1d1f;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.002em;
 }
 
 .cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 20px 0;
 }
 
 .card {
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.4));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 16px;
-    box-shadow: 0 4px 20px rgba(31, 38, 135, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.18);
-    padding: 1.5rem;
-    flex: 1 1 calc(20% - 1.5rem);
-    min-width: 200px;
+    background: linear-gradient(135deg, #1a1a1a 0%, #222222 100%);
+    border-radius: 18px;
+    padding: 32px;
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
     display: flex;
     flex-direction: column;
     position: relative;
     overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    gap: 20px;
 }
 
 .card::before {
     content: '';
     position: absolute;
     top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: 0.5s;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, 
+        rgba(79, 172, 254, 0.15) 0%,
+        rgba(0, 242, 254, 0.15) 25%,
+        rgba(102, 126, 234, 0.1) 50%,
+        transparent 75%);
+    z-index: 1;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(31, 38, 135, 0.15);
+.card-content {
+    position: relative;
+    z-index: 2;
 }
 
 .card-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
+    position: relative;
+    z-index: 2;
 }
 
 .card-content h3 {
-    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 20px;
     font-weight: 600;
-    margin-bottom: 0.8rem;
-    color: #333;
+    line-height: 1.3;
 }
 
 .card-content p {
-    font-size: 0.9rem;
-    color: #666;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 15px;
+    line-height: 1.5;
 }
 
-.footer {
-    text-align: center;
-    padding: 2rem 0;
-    margin-top: 3rem;
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3));
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.18);
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.15);
 }
 
-.footer-content p {
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #333;
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
 }
 
-/* 响应式设计 */
-@media (max-width: 1200px) {
-    .card {
-        flex: 1 1 calc(25% - 1.5rem);
-    }
+.card-icon {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 24px;
 }
 
-@media (max-width: 992px) {
-    .card {
-        flex: 1 1 calc(33.333% - 1.5rem);
+.card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.card-content h3 {
+    color: #86868b;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.card-content p {
+    color: #86868b;
+    font-size: 17px;
+    line-height: 1.5;
+}
+
+.highlight-number {
+    font-size: 56px;
+    font-weight: 700;
+    background: linear-gradient(135deg, #06c, #2388ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 16px;
+    line-height: 1;
+}
+
+.highlight-text {
+    font-size: 21px;
+    color: #1d1d1f;
+    font-weight: 600;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+}
+
+@media (max-width: 1024px) {
+    .cards-container {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 768px) {
-    .card {
-        flex: 1 1 calc(50% - 1.5rem);
-    }
-    
-    .header-content h1 {
-        font-size: 2rem;
+    .cards-container {
+        grid-template-columns: 1fr;
     }
 }
 
-@media (max-width: 576px) {
-    .card {
-        flex: 1 1 100%;
-    }
-    
-    .container {
-        padding: 1rem;
-    }
-    
-    .header-content h1 {
-        font-size: 1.8rem;
-    }
+
+.cta-button {
+    display: inline-block;
+    padding: 12px 28px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #fff;
+    background: linear-gradient(135deg, #06c, #2388ff);
+    border-radius: 980px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 24px;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2);
+    background: linear-gradient(135deg, #0077ed, #42a2ff);
+}
+
+/* 调整图标尺寸 */
+.card-icon {
+    width: 64px;
+    height: 64px;
+    margin-bottom: 28px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-icon {
+    transform: scale(1.05);
+}
+
+/* 调整卡片内边距以适应更大的图标 */
+.card {
+    padding: 32px;
+    gap: 20px;
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+    font-size: 48px; /* emoji 大小 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card-content h3 {
+    color: #86868b;
+    font-size: 20px; /* 减小标题字号 */
+    font-weight: 600;
+    line-height: 1.3;
+}
+
+.card-content p {
+    color: #86868b;
+    font-size: 15px; /* 减小正文字号 */
+    line-height: 1.5;
+}
+
+.highlight-number {
+    font-size: 48px; /* 调整数字大小 */
+    margin-bottom: 12px;
+}
+
+.highlight-text {
+    font-size: 18px; /* 调整说明文字大小 */
 }
